@@ -5,12 +5,12 @@ const indexForm = (req, res) => {
 };
 
 const enviarEmail = async (req, res) => {
-    const { email, subject, message } = req.body
+    const { email, subject, datacontact } = req.body
     const envio = await transporter.sendMail({
         from: process.env.EMAIL,
         to: email,
         subject: subject,
-        message: message
+        text: datacontact
     });
     console.log({ envio });
     res.send('Email enviado!');
